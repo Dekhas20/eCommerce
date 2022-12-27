@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecommerce';
+  imgParent = ''
+
+
+
+  onloaded(img: string) {
+    console.log(img)
+  }
 }
