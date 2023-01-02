@@ -1,14 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(./app/styles/reset.scss);
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
 
 * {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .products-grid {
   app-img {
     img {
+      position: relative;
+      margin: 15px 0;
+      width: 90%;
+      left: 5%;
+      height: 200px;
       border-radius: 10px;
     }
   }
