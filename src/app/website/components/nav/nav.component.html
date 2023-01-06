@@ -41,18 +41,18 @@
     </nav>
     <div class="info">
       <div class="account">
-        <button *ngIf="!profile; else elseProfile" (click)="login()">
+        <button class="btn btn-secondary m-1" *ngIf="!profile; else elseProfile" (click)="login()">
           Login
         </button>
         <ng-template #elseProfile>
           <a routerLink="/profile">
             {{ profile?.email }}
         </a>
-        <button (click)="logout()">Logout</button>
+        <button class="btn btn-secondary m-1" (click)="logout()">Logout</button>
       </ng-template>
       </div>
       <div>
-        <a href="">
+        <a routerLink="/mycart">
           <img src="../../../assets/svg/icon_shopping_cart.svg" alt="" />
         </a>
         <span class="counter">{{ counter }}</span>

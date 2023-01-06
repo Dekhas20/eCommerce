@@ -9,7 +9,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class HomeComponent {
   products: Product[] = [];
-  limit = 10;
+  limit = 20;
   offset = 0;
 
   constructor(private productsService: ProductsService) {

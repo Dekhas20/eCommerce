@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class CategoryComponent implements OnInit {
   categoryId: string | null = null;
-  limit = 10;
+  limit = 20;
   offset = 0;
   products: Product[] = [];
 
@@ -21,16 +21,9 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadProducts();
-  }
-
-  loadProducts() {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          this.limit = 10;
-          this.offset = 0;
-          this.products = [];
           this.categoryId = params.get('id');
           if (this.categoryId) {
             return this.productsService.getProductsByCategory(
@@ -43,8 +36,21 @@ export class CategoryComponent implements OnInit {
         })
       )
       .subscribe((data) => {
-        this.products.push(...data);
+        this.products= data;
         this.offset += this.limit;
       });
+  }
+
+  loadProducts() {
+    if(this.categoryId){
+      this.productsService.getProductsByCategory(
+        this.categoryId,
+        this.limit,
+        this.offset
+      ).subscribe((data) => {
+        this.products = this.products.concat(data);
+        this.offset += this.limit;
+      });
+    }
   }
 }

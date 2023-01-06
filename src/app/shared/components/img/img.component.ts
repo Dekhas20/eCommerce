@@ -15,7 +15,6 @@ export class ImgComponent {
   }
 
   imgLoaded(){
-    console.log("loaded")
     this.loaded.emit(this.img);
   }
 }

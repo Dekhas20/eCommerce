@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Auth } from '../models/auth.model';
 import { User } from '../models/user.model';
 import { TokenService } from "../services/token.service";
-import { switchMap, tap } from "rxjs/operators";
-import {BehaviorSubject} from 'rxjs'
+import { catchError, switchMap, tap } from "rxjs/operators";
+import {BehaviorSubject, throwError} from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class AuthService {
       password,
     }).pipe(
       tap(response => this.tokenService.saveToken(response.access_token))
-    );
+    )
   }
 
   profile() {

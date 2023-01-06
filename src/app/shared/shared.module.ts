@@ -7,19 +7,25 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HighlightDirective } from './directives/highlight.directive';
 
+import { ReactiveFormsModule } from "@angular/forms";
+
+import { FormLoginComponent } from './components/form-login/form-login.component';
+
 @NgModule({
   declarations: [
     ImgComponent,
     ProductComponent,
     ProductsComponent,
     HighlightDirective,
+    FormLoginComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [
     ImgComponent,
     ProductComponent,
     ProductsComponent,
     HighlightDirective,
+    FormLoginComponent,
   ],
 })
 export class SharedModule {}
