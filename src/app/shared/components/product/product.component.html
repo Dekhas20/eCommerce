@@ -15,12 +15,11 @@
   </div>
 </div> -->
 <div class="product-container">
-  <a  [routerLink]="['/product', product.id]">
     <app-img *ngIf="product.images.length >= 0" [img]="product.images[0]"></app-img>
 
-  </a>
   <h2 class="price">{{ product.price | currency : "COP" }}</h2>
   <p class="title">{{ product.title }}</p>
-  <button class="add-cart" (click)="addToCart()">Add cart</button>
+  <button class="add-cart" (click)="addToCart()">Add to cart</button>
+  <button [routerLink]="['/product', product.id]" class="details" (click)="addToCart()">Details</button>
 </div>
 

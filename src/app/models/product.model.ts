@@ -15,3 +15,7 @@ export interface Product {
 
 export interface createProductDTO extends Omit<Product, 'id' | 'category'> {
 }
+
+export interface productInCart extends Product {
+  amount: number
+}

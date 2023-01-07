@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from '../../../services/products.service';
+import { StoreService } from '../../../services/store.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,11 +13,24 @@ import { ProductsService } from '../../../services/products.service';
 })
 export class ProductDetailComponent implements OnInit{
   productId: string | null = null;
-  product: Product | null = null;
+  product: Product = {
+    id: "",
+    title: '',
+    images: [],
+    description:'',
+    category: {
+      id:0,
+      name:'',
+      image:''
+    },
+    price: 0,
+  };;
+  amount = 1
 
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
+    private storeService: StoreService,
     private location: Location
   ) {}
 
@@ -34,7 +48,7 @@ export class ProductDetailComponent implements OnInit{
               this.productId
             );
           }
-          return [null];
+          return [this.product];
         })
       )
       .subscribe((data) => {
@@ -44,5 +58,19 @@ export class ProductDetailComponent implements OnInit{
 
   goToBack() {
     this.location.back()
+  }
+
+  addProduct() {
+    this.storeService.addProduct(this.product, this.amount)
+  }
+
+  oneMore() {
+    this.amount +=1
+  }
+
+  oneLess() {
+    if(this.amount > 1){
+      this.amount -=1
+    }
   }
 }

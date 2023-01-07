@@ -1,7 +1,7 @@
-<div *ngIf="user">
-  <h1>My Profile</h1>
-  <p>Nombre: {{user.name}}</p>
-  <p>Email: {{user.email}}</p>
-  <p>Role: {{user.role}}</p>
-  <a *ngIf="user.role == 'admin'" routerLink="/cms">CMS</a>
+<div class="" style="height: 100vh;" *ngIf="user">
+  <h1 class="">My Profile</h1>
+  <p><span class="title">Nombre:</span> {{user.name}}</p>
+  <p><span class="title">Email:</span> {{user.email}}</p>
+  <p><span class="title">Role:</span> {{user.role}}</p>
+  <a class="btn btn-primary" *ngIf="user.role == 'admin'" routerLink="/cms">CMS</a>
 </div>

@@ -20,14 +20,15 @@ h2 {
 padding: 5px;
 }
 
-.add-cart {
+.add-cart, .details {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  right: 0;
+  width: 50%;
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
 	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
 	background-color:#bddbfa;
-	border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 0;
 	border:1px solid #84bbf3;
 	display:inline-block;
 	cursor:pointer;
@@ -35,12 +36,22 @@ padding: 5px;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
+  height: 30px;
 }
 .add-cart:hover {
 	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+
+.details {
+  left: 0;
+	border-radius: 0 0 0 10px;
+	background:linear-gradient(to bottom, #69b0f7 5%, #80b5ea 100%);
+}
+.details:hover {
+	background:linear-gradient(to bottom, #5fa9f3 5%, #e1eaf3 100%);
 	background-color:#80b5ea;
 }
 // .add-cart:active {

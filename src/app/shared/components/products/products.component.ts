@@ -37,7 +37,7 @@ export class ProductsComponent {
   }
 
   addToShoppingCart(product: Product) {
-    this.storeService.addProduct(product);
+    this.storeService.addProduct(product, 1);
     this.total = this.storeService.getTotal();
   }
 
