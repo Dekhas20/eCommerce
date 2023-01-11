@@ -1,4 +1,4 @@
-<div class="show-mobile">
+<!-- <div class="show-mobile">
   <div>
     <button (click)="toggleMenu()">
       <img src="../../../assets/svg/icon_menu.svg" alt="" />
@@ -59,4 +59,49 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg bg-light hide-mobile">
+  <div class="container-fluid">
+    <a class="logo navbar-brand" href="">
+      <img src="../../../assets/svg/logo_yard_sale.svg" alt="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="home">All</a>
+        </li>
+        <li class="nav-item" *ngFor="let item of categories">
+          <a routerLinkActive="active" [routerLink]="['/category', item.id]">{{
+            item.name
+          }}</a>
+        </li>
+      </ul>
+      <div class="d-flex info">
+        <div class="account">
+          <button class="btn btn-secondary m-1" *ngIf="!profile; else elseProfile" (click)="login()">
+            Login
+          </button>
+          <button class="btn btn-secondary m-1" *ngIf="!profile" (click)="register()">
+            Sign up
+          </button>
+          <ng-template #elseProfile>
+            <a routerLink="/profile">
+              {{ profile?.email }}
+          </a>
+          <button class="btn btn-secondary m-1" (click)="logout()">Log out</button>
+        </ng-template>
+        </div>
+        <div>
+          <a routerLink="/mycart">
+            <img src="../../../assets/svg/icon_shopping_cart.svg" alt="" />
+          </a>
+          <span class="counter">{{ counter }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

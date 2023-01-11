@@ -10,7 +10,8 @@ import {BehaviorSubject, throwError} from 'rxjs'
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://damp-spire-59848.herokuapp.com/api/auth';
+  // private apiUrl = 'https://damp-spire-59848.herokuapp.com/api/auth';
+  private apiUrl = 'http://127.0.0.1:5000/users';
   private user = new BehaviorSubject<User | null>(null)
 
   user$ = this.user.asObservable()

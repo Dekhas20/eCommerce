@@ -1,5 +1,5 @@
 <div class="container" style="min-height: 100vh;">
-  <div *ngIf="products.length < 1; else listCart" class="nothing row justify-content-center">You still have nothing in the cart</div>
+  <div *ngIf="products.length < 1; else listCart" class="nothing row justify-content-center">You cart is empty</div>
   <ng-template #listCart>
     <div class="row">
       <div class="col-12">
@@ -28,6 +28,10 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="row">
+      <p class="p-3 col-6 text-left" style="font-weight: bold;">Total: {{total | currency}}</p>
+      <button class="btn btn-secondary col-6">Proceed to checkout</button>
     </div>
   </ng-template>
 

@@ -12,7 +12,8 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl = 'https://damp-spire-59848.herokuapp.com/api';
+  // private apiUrl = 'https://damp-spire-59848.herokuapp.com/api';
+  private apiUrl = 'http://127.0.0.1:5000';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -45,6 +46,7 @@ export class ProductsService {
       params = params.set('limit', limit);
       params = params.set('offset', offset);
     }
-    return this.httpClient.get<Product[]>(`${this.apiUrl}/categories/${categoryId}/products`, {params}).pipe(retry(3));
+    // return this.httpClient.get<Product[]>(`${this.apiUrl}/categories/${categoryId}/products`, {params}).pipe(retry(3));
+    return this.httpClient.get<Product[]>(`${this.apiUrl}/products/cat/${categoryId}`, {params}).pipe(retry(3));
   }
 }

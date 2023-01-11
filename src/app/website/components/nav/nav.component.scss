@@ -1,35 +1,4 @@
-.show-mobile {
-  display: block;
-  box-shadow: 0px 2px 5px rgb(black, .2);
-  > div {
-    padding: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    button {
-      border: 0;
-      background: transparent;
-    }
-  }
-  .side-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transform: translateX(-100%);
-    transition: all .5s;
-    &.active {
-      transform: translateX(0);
-    }
-  }
-}
 .hide-mobile {
-  display: none;
   box-shadow: 0px 2px 5px rgb(black, .2);
   > div {
     padding: 1em;
@@ -40,9 +9,6 @@
   .logo {
     margin-right: 1em;
   }
-  nav {
-    display: flex;
-    align-items: center;
     ul {
       display: flex;
       list-style: none;
@@ -57,7 +23,6 @@
         }
       }
     }
-  }
   .info {
     display: flex;
     align-items: center;
@@ -72,22 +37,3 @@ a {
   color: black;
 }
 
-/* Medium only */
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {
-  .show-mobile {
-    display: none;
-  }
-  .hide-mobile {
-    display: block;
-  }
-}
-
-/* Large and up */
-@media screen and (min-width: 64em) {
-  .show-mobile {
-    display: none;
-  }
-  .hide-mobile {
-    display: block;
-  }
-}

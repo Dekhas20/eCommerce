@@ -7,7 +7,8 @@ import { User, createUserDTO } from "../models/user.model";
 })
 export class UsersService {
 
-  private apiUrl = 'https://damp-spire-59848.herokuapp.com/api/users';
+  // private apiUrl = 'https://damp-spire-59848.herokuapp.com/api/users';
+  private apiUrl = 'http://127.0.0.1:5000/users/register';
 
   constructor(private httpClient: HttpClient) { }
 

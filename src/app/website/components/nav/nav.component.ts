@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.storeService.myCart$.subscribe((products) => {
-      this.counter = products.length;
+      this.counter = products.reduce((accumulator, item) => accumulator + item.amount, 0);
     });
     this.getAllCategories();
     this.authService.user$.subscribe((data) => (this.profile = data));
@@ -51,6 +51,10 @@ export class NavComponent implements OnInit {
 
   login() {
     this.router.navigate(['/login']);
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 
   logout() {

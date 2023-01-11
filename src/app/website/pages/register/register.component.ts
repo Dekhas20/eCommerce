@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { OnExit } from '../../../guards/exit.guard';
 import { UsersService } from '../../../services/users.service';
@@ -14,7 +15,7 @@ export class RegisterComponent {
   emailField = new FormControl();
   passwordField = new FormControl();
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router:Router) {}
 
   onExit() {
     const rta = confirm('¿Estas seguro que quieres salir?');
@@ -28,7 +29,8 @@ export class RegisterComponent {
       password: this.passwordField.value,
       role: 'customer'
     }).subscribe(rta => {
-      console.log(rta)
+      alert('Usuario creado exitosamente')
+      this.router.navigate(['/login']);
     });
   }
 }
